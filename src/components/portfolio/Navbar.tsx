@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const links = [
-  { id: "profile", label: "Profile" },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
   { id: "work", label: "Skills" },
-  { id: "experience", label: "Experience" },
-  { id: "certifications", label: "Certifications" },
+  { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
 const Navbar = () => {
-  const [active, setActive] = useState("profile");
+  const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const Navbar = () => {
     >
       <nav className="flex items-center justify-between px-4 py-2 sm:px-6 sm:py-3">
         <button
-          onClick={() => scrollTo("profile")}
+          onClick={() => scrollTo("home")}
           className="group flex items-center gap-2 font-display text-sm font-semibold tracking-wide"
         >
           <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-primary text-xs font-bold text-primary-foreground shadow-glow">

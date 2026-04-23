@@ -3,8 +3,7 @@ import { Download, Mail } from "lucide-react";
 import MagneticButton from "./MagneticButton";
 import SLogo3D from "./SLogo3D";
 
-const RESUME_URL = "https://crude-gold-0cxau2vjqa.edgeone.app";
-const title = "Sofiya S";
+const RESUME_URL = "https://crude-gold-0cxau2vjva.edgeone.app";
 
 const letter = {
   hidden: { y: "110%", opacity: 0 },
@@ -21,7 +20,7 @@ const Hero = () => {
 
   return (
     <section
-      id="profile"
+      id="home"
       className="relative flex min-h-screen w-full items-center overflow-hidden px-6 pt-28 sm:px-10 lg:px-16"
     >
       {/* Floating particles */}
@@ -52,26 +51,42 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7 }}
-            className="font-display text-3xl font-bold text-foreground sm:text-4xl"
+            className="font-display text-2xl font-bold text-muted-foreground sm:text-3xl"
           >
             Hi, I'm <span className="text-gradient">Sofiya S</span>
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="mt-4 font-display text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl"
+          >
+            IT Student <span className="text-gradient">|</span> AI & Web Developer
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+            className="mt-4 text-xl font-semibold text-primary sm:text-2xl"
+          >
+            Building smart solutions using Python & AI
           </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.7 }}
+            transition={{ delay: 0.7, duration: 0.7 }}
             className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg"
           >
-            IT student skilled in Python, Java, and web development with hands-on project
-            experience. Strong problem-solving, leadership, and teamwork abilities — eager to
-            apply skills in real-world development environments.
+            Passionate about creating impactful real-world applications. I specialize in bridging the gap between complex AI algorithms and intuitive user experiences.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <MagneticButton

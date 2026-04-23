@@ -2,53 +2,53 @@ import { motion } from "framer-motion";
 
 const items = [
   {
-    year: "11 / 2025",
+    year: "2025",
     role: "Argus",
     org: "AI Security Copilot",
-    desc: "AI copilot monitoring transactions, devices, accounts and merchants for financial security.",
+    desc: "AI copilot monitoring transactions, devices, accounts and merchants for financial security. Implemented real-time anomaly detection to prevent fraudulent activities.",
+    tech: ["Python", "AI", "Security"],
   },
   {
-    year: "11 / 2025",
+    year: "2025",
     role: "Adhivan",
     org: "AI Mapping Project",
-    desc: "AI-generated asset maps for rural FRA villages.",
+    desc: "AI-generated asset maps for rural FRA villages. This project helps in digitizing land records and improving resource management for underserved communities.",
+    tech: ["AI", "GIS", "Python"],
   },
   {
-    year: "04 / 2025",
+    year: "2025",
+    role: "Personality Check",
+    org: "Python Web App",
+    desc: "Developed a Python-based personality analysis tool that processes user input and generates personalized insights. It helps users understand their behavioral patterns through AI-driven psychometric analysis.",
+    tech: ["Python", "AI", "React"],
+  },
+  {
+    year: "2025",
     role: "Waste Optimizer",
     org: "IoT & C++",
-    desc: "Developed a smart waste optimisation system using IoT sensors and C++.",
+    desc: "Developed a smart waste optimisation system using IoT sensors and C++. This solution reduces operational costs by optimizing collection routes based on real-time bin levels.",
+    tech: ["C++", "IoT", "Sensors"],
   },
   {
-    year: "10 / 2024",
+    year: "2024",
     role: "Block Breaker",
     org: "Java Game",
-    desc: "Developed a classic block-breaker arcade game using Java.",
+    desc: "Developed a classic block-breaker arcade game using Java with smooth animations and progressive difficulty levels.",
+    tech: ["Java", "Game Dev"],
   },
   {
-    year: "05 / 2024",
+    year: "2024",
     role: "Monty Hall Simulator",
     org: "Python Simulation",
     desc: "Developed a probability simulation game based on the Monty Hall problem using Python.",
-  },
-  {
-    year: "09 / 2023",
-    role: "PyNote — Digital Diary",
-    org: "Python Application",
-    desc: "Developed a digital diary application for personal note-keeping using Python.",
-  },
-  {
-    year: "05 / 2023",
-    role: "Personality Check",
-    org: "Python Web App",
-    desc: "Developed a personality assessment website using Python.",
+    tech: ["Python", "Statistics"],
   },
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="relative px-6 py-32">
-      <div className="mx-auto max-w-4xl">
+    <section id="projects" className="relative px-6 py-32">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,8 +57,11 @@ const Experience = () => {
           className="mb-16 text-center"
         >
           <h2 className="font-display text-4xl font-bold sm:text-5xl">
-            <span className="text-gradient">Experience</span>
+            <span className="text-gradient">Projects & Experience</span>
           </h2>
+          <p className="mt-4 text-muted-foreground">
+            Real-world applications solving meaningful problems
+          </p>
         </motion.div>
 
         <div className="relative">
@@ -93,6 +96,16 @@ const Experience = () => {
                     </span>
                     <h3 className="mt-2 font-display text-xl font-semibold">{item.role}</h3>
                     <p className="text-sm text-muted-foreground">{item.org}</p>
+                    <div className="mt-3 flex flex-wrap gap-2 md:justify-start">
+                      {item.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <div className={`pl-10 md:pl-0 ${left ? "md:pl-12" : "md:pr-12 md:text-right"}`}>
                     <div className="rounded-2xl glass border border-border/60 p-5 text-sm text-muted-foreground hover:border-primary/40 transition-colors">

@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Briefcase } from "lucide-react";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
 import { toast } from "sonner";
 
-// 👉 Change this to your email address
 const CONTACT_EMAIL = "sofiya@example.com";
 
 const socials = [
@@ -40,8 +39,21 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
         >
           <h2 className="font-display text-4xl font-bold leading-tight sm:text-6xl">
-            <span className="text-gradient">Contact</span>
+            <span className="text-gradient">Let's build</span> something together.
           </h2>
+          
+          {/* Open to opportunities badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2"
+          >
+            <Briefcase className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Open to internships & opportunities</span>
+          </motion.div>
+
           <p className="mt-6 max-w-md text-muted-foreground sm:text-lg">
             Have an idea, project, or collaboration in mind? Send a note — I reply within 24 hours.
           </p>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "@/components/portfolio/Navbar";
 import Hero from "@/components/portfolio/Hero";
+import Profile from "@/components/portfolio/Profile";
 import Work from "@/components/portfolio/Work";
 import Experience from "@/components/portfolio/Experience";
 import Certifications from "@/components/portfolio/Certifications";
@@ -34,6 +35,7 @@ const Index = () => {
         >
           <Navbar />
           <Hero />
+          <Profile />
           <Work />
           <Experience />
           <Certifications />
