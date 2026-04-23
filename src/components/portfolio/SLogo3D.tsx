@@ -41,32 +41,32 @@ const DiamondSphere = ({ radius = 0.95, detail = 3, color = "#A18CD1" }) => {
   );
 };
 
-// Rotating ring component
+// Rotating ring component (Saturn-style)
 const RotatingRing = ({ 
   radius, 
   tube, 
   color, 
   speed, 
-  axis,
-  tilt = 0 
+  tiltX = 0,
+  tiltZ = 0
 }: { 
   radius: number; 
   tube: number; 
   color: string; 
   speed: number; 
-  axis: "x" | "y" | "z";
-  tilt?: number;
+  tiltX?: number;
+  tiltZ?: number;
 }) => {
-  const groupRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
-    if (!groupRef.current || !meshRef.current) return;
+    if (!meshRef.current) return;
     const t = state.clock.getElapsedTime();
     
-    // Continuous rotation
-    groupRef.current.rotation[axis] = t * speed;
-    groupRef.current.rotation.x = tilt;
+    // Continuous Y-axis rotation (Saturn-style)
+    meshRef.current.rotation.y = t * speed;
+    meshRef.current.rotation.x = tiltX;
+    meshRef.current.rotation.z = tiltZ;
     
     // Pulsing glow effect
     const pulse = Math.sin(t * 1.5) * 0.15 + 0.85;
@@ -74,21 +74,19 @@ const RotatingRing = ({
   });
   
   return (
-    <group ref={groupRef}>
-      <mesh ref={meshRef}>
-        <torusGeometry args={[radius, tube, 16, 80]} />
-        <meshStandardMaterial
-          color={color}
-          emissive={color}
-          emissiveIntensity={0.8}
-          wireframe
-          transparent
-          opacity={0.75}
-          metalness={0.8}
-          roughness={0.1}
-        />
-      </mesh>
-    </group>
+    <mesh ref={meshRef}>
+      <torusGeometry args={[radius, tube, 16, 100]} />
+      <meshStandardMaterial
+        color={color}
+        emissive={color}
+        emissiveIntensity={0.8}
+        wireframe
+        transparent
+        opacity={0.8}
+        metalness={0.8}
+        roughness={0.1}
+      />
+    </mesh>
   );
 };
 
@@ -101,7 +99,7 @@ const SLogo3D = () => {
       
       <Canvas 
         dpr={[1, 2]} 
-        camera={{ position: [0, 0, 4.5], fov: 45 }} 
+        camera={{ position: [0, 0, 5], fov: 50 }} 
         gl={{ antialias: true, alpha: true }}
         style={{ background: 'transparent' }}
       >
@@ -127,10 +125,10 @@ const SLogo3D = () => {
           {/* Diamond sphere (octahedron) */}
           <DiamondSphere radius={0.95} detail={3} color="#A18CD1" />
           
-          {/* Rotating rings */}
-          <RotatingRing radius={1.45} tube={0.02} color="#FBC2EB" speed={0.5} axis="z" tilt={0} />
-          <RotatingRing radius={1.7} tube={0.015} color="#C8A2E8" speed={-0.4} axis="x" tilt={0.5} />
-          <RotatingRing radius={1.95} tube={0.012} color="#A18CD1" speed={0.35} axis="y" tilt={-0.4} />
+          {/* Rotating Saturn-style rings - closer to sphere */}
+          <RotatingRing radius={1.15} tube={0.015} color="#FBC2EB" speed={0.6} tiltX={0.4} tiltZ={0.1} />
+          <RotatingRing radius={1.25} tube={0.012} color="#C8A2E8" speed={-0.5} tiltX={-0.3} tiltZ={0.5} />
+          <RotatingRing radius={1.35} tube={0.01} color="#A18CD1" speed={0.4} tiltX={0.6} tiltZ={-0.2} />
         </Float>
         
         {/* Centered "S" text */}
